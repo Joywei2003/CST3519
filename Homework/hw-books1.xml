@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="hw1.xsl"?>
+
+<!--You are given the following list of authors and their main work:
+Harper Lee, To Kill a Mockingbird
+Jack London, The Call of the Wild
+Herman Melville, Moby-Dick
+Margaret Mitchell, Gone with the Wind
+Edgar Allan Poe, The Raven
+John Steinbeck, The Grapes of Wrath
+Create an XML document with the above information and create an XSL document that style the XML into a Web page that displays:
+All the above data in a table
+Only book(s) by John Steinbeck in another table-->
+
+<books>
+    <book>
+        <author>Harper Lee</author>
+        <title>To Kill a Mockingbird</title>
+    </book>
+    <book>
+        <author>Jack London</author>
+        <title>The Call of the Wild</title>
+    </book>
+    <book>
+        <author>Herman Melville</author>
+        <title>Moby-Dick</title>
+    </book>
+    <book>
+        <author>Margaret Mitchell</author>
+        <title>Gone with the Wind</title>
+    </book>
+    <book>
+        <author>Edgar Allan Poe</author>
+        <title>The Raven</title>
+    </book>
+    <book>
+        <author>John Steinbeck</author>
+        <title>The Grapes of Wrath</title>
+    </book>
+</books>
+ 
