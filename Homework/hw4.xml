@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="hw4.xsl" type="text/xsl"?>
+
+<links>
+    <link>
+        <name>Associate Press (AP)</name>
+        <url>https://www.apnews.com</url>
+    </link>
+    <link>
+        <name>Reuters</name>
+        <url>https://www.reuters.com</url>
+    </link>
+    <link>
+        <name>Christian Science Monitor</name>
+        <url>https://www.csmonitor.com </url>
+    </link>
+    <link>
+        <name>USA Today</name>
+        <url>https://www.usatoday.com</url>
+    </link>
+    <link>
+        <name>Wall Street Journal</name>
+        <url>https://www.wsj.com</url>
+    </link>
+</links>

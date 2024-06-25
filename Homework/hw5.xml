@@ -1,0 +1,20 @@
+<?xml version = "1.0" ?>
+<?xml-stylesheet type="text/xsl" href="hw5.xsl"?>
+
+<fishes>
+    <fish name="Red Snapper">
+        <box>15</box> 
+        <unitprice>8</unitprice> 
+        <boxqty>20</boxqty>
+    </fish>
+    <fish name="Sea Bass">
+        <box>5</box> 
+        <unitprice>10</unitprice>
+        <boxqty>10</boxqty> 
+    </fish>
+    <fish name="Tuna"> 
+        <box>12</box>
+        <unitprice>12</unitprice>
+        <boxqty>13</boxqty> 
+    </fish>
+</fishes>

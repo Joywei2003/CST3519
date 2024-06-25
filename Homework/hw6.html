@@ -1,0 +1,52 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <!-- download jQuery from the cloud: Google --->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript"> 
+            function runjQuery()
+            {
+                $.ajax
+                ({
+                    //setup communication parameters url: "getselect.php",
+                    success: function(serverdata)
+                    {
+                        //put serverdata on the web page placeholder
+                        $("#showselect").html(serverdata); 
+                    }
+                })
+            }//end of function runjQuery()
+            function displayreceipt() 
+            {
+                //reading the value of the selected option item, either using the dom 
+                //var selectedOption = document.getElementById('stateList').value; 
+                //or using jQuery (preferred)
+                var selectedOption = $("#stateList").val();
+                
+                //read the price of the product
+                var price = $("#priceTxtBx").val(); 
+                price = parseFloat(price);
+
+                var tax = parseFloat(selectedOption/100.);
+                var amountTax = price * tax;
+                var total = price + amountTax;
+                //instance of Intl.Format
+                var formatCurrency = new Intl.NumberFormat(undefined,{style: 'currency',currency: 'USD'});
+                $("#showreceipt").html(
+                    "<table border='1'>"+
+                    "<tr><th colspan='2'>Sales Receipt</th></tr>" +
+                    "<tr><td>Price</td><td>" + price + "</td></tr>" +
+                    "<tr><td>Tax</td><td>" + formatCurrency.format(amountTax) + "</td></tr>"+ 
+                    "<tr><td>Grand Todal</td><td>"+ formatCurrency.format(total) + "</td></tr></table>"
+                );
+            } 
+        </script>
+    </head>
+    <body onload="runjQuery()">
+        <h2>Purchase Order</h2> <p></p>
+            Price: <input type="text" id="priceTxtBx" autofocus/> <p></p> 
+            State: <span id="showselect"></span> <p></p>
+        <!-- display the receipt -->
+        <div id="showreceipt"></div>
+    </body> 
+</html>
