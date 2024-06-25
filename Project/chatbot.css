@@ -1,0 +1,45 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    place-items: center;
+    display: grid;
+}
+.content
+{
+    width: 370px;
+    background: #fff;
+    border-radius: 5px;
+    border: 1px solid lightgrey;
+    border-top: 0px;
+    
+}
+.bot-inbox {
+    
+    overflow-y: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+.user-message {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+}
+
+.bot-message {
+    padding: 5px 10px;
+    margin-bottom: 5px;
+    text-align: right;
+}
+button {
+    padding: 10px 20px;
+    background-color: #4176af;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}

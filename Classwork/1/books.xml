@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="books.xsl"?>
+
+<!--root-->
+<books>
+    <book>
+        <author>Ernest Hemingway</author>
+        <title>The Sun Also Rises</title>
+    </book>
+    <book>
+        <author>Ernest Hemingway</author>
+        <title>For Whom the Bell Tolls</title>
+    </book>
+    <book>
+        <author>Ernest Hemingway</author>
+        <title>A Farewell to Arms</title>
+    </book>
+    <book>
+        <author>Agatha Christie</author>
+        <title>Murder on the Orient Express</title>
+    </book>
+    <book>
+        <author>Agatha Christie</author>
+        <title>For Whom the Bell Tolls</title>
+    </book>
+    <book>
+        <author>Agatha Christie</author>
+        <title>A Farewell to Arms</title>
+    </book>
+</books>

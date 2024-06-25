@@ -1,0 +1,147 @@
+<!DOCTYPE html> 
+<html>
+        <head>
+        <!-- download jQuery from a cloud service provider: Google -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        
+        <script type="text/javascript"> 
+        function showgreetings()
+        {
+            //read input (use DOM - Document Object Model)
+            var inputName = document.getElementById("nameID").value; alert("Hello, " + inputName);
+        }
+        function checkcredentials() 
+        {
+            //store pairs of username, password in array (2D array) 
+            var credentials = [
+                ["abcd", "12345"],
+                ["efgh", "aabbc"],
+                ["a1a2", "33bbc"] 
+            ];
+            
+            //read inputs (username & password)
+            var inputUsername = document.getElementById("usernameID").value; 
+            var inputPassword = document.getElementById("passwordID").value;
+                
+            //Validation
+            if(inputUsername != "" && inputPassword != "") 
+            {
+                var numrows = credentials.length;
+                var numcols = credentials[0,0].length;
+                //alert("Number of Rows: " + numrows +", Number of Columns: " + numcols); 
+                //nested loop
+                var found = false;
+                for (i=0; i < numrows; i++) 
+                {
+                    for(j=0; j< numcols; j++) 
+                    {
+                        if (credentials[i][j] == inputUsername && credentials[i][j+1] == inputPassword) 
+                        {
+                            found = true;
+                            alert("Welcome to CST3519"); 
+                            break;
+                        } 
+                    }
+                }
+                if (found == false) alert("Invalid credentials"); 
+            }
+            else alert("Please enter valid inputs"); 
+        }
+        
+        function runAjax() 
+        {
+            //read inputs (username & password)
+            var inputUsername = document.getElementById("usernameID").value.trim(); 
+            var inputPassword = document.getElementById("passwordID").value.trim();
+            
+            //Validation
+            if(inputUsername != "" && inputPassword != "")
+            {
+                //create an agent (object) of class XMLHttpRequest, but it depends on the Web browser 
+                if (window.XMLHttpRequest) var ajaxAgent = new XMLHttpRequest();
+                else ajaxAgent = new ActiveXObject("Microsoft.XMLHTTP"); //IE browsers
+                
+                //open connection to a server's program
+                ajaxAgent.open("GET", "validateuser.php?v1="+inputUsername+"&v2="+inputPassword, true); //true means asynchronous
+                ajaxAgent.send(null);
+
+                //checking if connection to the server went through (connection & handshakes)
+                ajaxAgent.onreadystatechange = function()
+                {
+                    if (ajaxAgent.readyState==4 && ajaxAgent.status==200) 
+                    {
+                        var server_response = ajaxAgent.responseText;
+                        //put this server_response at the placeholder
+                        document.getElementById("showserverresponse").innerHTML = server_response; 
+                    }
+                } 
+            }
+        }
+        
+        function runjQuery_GET() 
+        {
+            //read inputs (username & password)
+            var inputUsername = document.getElementById("usernameID").value.trim(); 
+            var inputPassword = document.getElementById("passwordID").value.trim();
+            
+            //Validation
+            if(inputUsername != "" && inputPassword != "")
+            {
+                $.ajax({
+                    //setup the communication parameters
+                    url:    "validateuser.php",
+                    type:   "GET",
+                    data:   "usernameKey="+inputUsername+"&passwordKey="+inputPassword,
+                    success: function(serverdata)
+                    {
+                        //put the serverdata in the placeholder
+                        $("#showserverresponse").html(serverdata); 
+                    }
+                }); 
+            }
+            else
+                alert("Please enter valid credentials");
+        }
+                
+        function runjQuery_POST() 
+        {
+            //read inputs (username & password)
+            var inputUsername = document.getElementById("usernameID").value.trim(); 
+            var inputPassword = document.getElementById("passwordID").value.trim();
+            
+            //Validation
+            if(inputUsername != "" && inputPassword != "") 
+            {
+                $.ajax({
+                    //setup the communication parameters
+                    url:    "validateuser.php",
+                    type:   "POST",
+                    data:   {usernameKey:inputUsername, passwordKey:inputPassword},
+                    success: function(serverdata)
+                    {
+                        //put the serverdata in the placeholder
+                        $("#showserverresponse").html(serverdata); 
+                    }
+                }); 
+            }
+            else
+            alert("Please enter valid credentials");
+        }//end of function runjQuery() 
+    </script>
+    </head>
+    <body> 
+        <h2>Greetings</h2>
+        <p></p>
+        <!-- What’s your name? <input type="text" id="nameID" autofocus onchange="showgreetings()"/>
+        <p></p>
+        Username: <input type="text" id="usernameID"/><br/>
+        Password: <input type="text" id="passwordID" onchange="checkcredentials()"/><br/> -->
+
+        Username: <input type="text" id="usernameID"/><br/>
+        <!-- Password: <input type="text" id="passwordID" onchange="runAjax()"/><br/> -->
+        
+        Password: <input type="text" id="passwordID" onchange="runjQuery_GET()"/><br/> <!-- Password: <input type="text" id="passwordID" onchange="runjQuery_POST()"/>-->
+        <!-- create a placeholder to show the server's response -->
+        <!-- with block HTML elements such as <h>, <p>, <div>, <span>, --> <div id="showserverresponse"></div>
+    </body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        function choosemGenre()
+        {
+            var selectedGenre = $('input[name="genre"]:checked').val();
+            console.log(selectedGenre);
+            if (selectedGenre) 
+            {
+                $.ajax
+                ({
+                    url: 'final.php',
+                    type: 'post',
+                    data: { genre: selectedGenre },
+                    success: function(response) 
+                    {
+                        $('#movieList').html(response);
+                    }
+                });
+            } 
+            else 
+            {
+                alert('Please select a genre.');
+            }
+        }
+
+    </script>
+    <style>
+        body
+        {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            place-items: center;
+            display: grid;
+        }
+        .header
+        {
+            background-color: blue;
+            text-align: center;
+        }
+    </style>
+    <title>Final</title>
+    
+</head>
+<body>
+    <h1 class="header">Movies</h1>
+    <img src="finalB.png" width="100px" height="100px">
+    <fieldset id="movieGenre">
+        <legend>Mode</legend>
+        <span><input name="genre" type="radio" onclick="choosemGenre()">Action</span>
+        <span><input name="genre" type="radio" onclick="choosemGenre()">Animation</span>
+        <span><input name="genre" type="radio" onclick="choosemGenre()">Horror</span>
+        <span><input name="genre" type="radio" onclick="choosemGenre()">Comedy</span>
+        <span><input name="genre" type="radio" onclick="choosemGenre()">Sci-fi</span>
+    </fieldset>
+</body>
+</html>

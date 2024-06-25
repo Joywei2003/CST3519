@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="payroll.xsl"?>
+<employees> 
+    <employee>
+        <name>John Smith</name> 
+        <id>123</id> 
+        <hoursworked>38</hoursworked> 
+        <hourlyrate>14</hourlyrate>
+    </employee> 
+    <employee>
+        <name>Sofia Khan</name>
+        <id>345</id> 
+        <hoursworked>44</hoursworked> 
+        <hourlyrate>18</hourlyrate>
+    </employee> 
+    <employee>
+        <name>Rita Chen</name> 
+        <id>678</id> 
+        <hoursworked>47</hoursworked> 
+        <hourlyrate>20</hourlyrate>
+    </employee> 
+    <employee>
+        <name>Elizabeth Rodriguez</name> 
+        <id>901</id> 
+        <hoursworked>43</hoursworked> 
+        <hourlyrate>19</hourlyrate>
+    </employee> 
+</employees>

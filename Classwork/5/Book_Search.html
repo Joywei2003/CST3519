@@ -1,0 +1,57 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <!-- download jQuery from Google -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript"> 
+            function runjQuery()
+            {
+                //reading the search input
+                var searchInput = $("#searchTxtBx").val().tr();
+                
+                $.ajax
+                ({
+                    //setup the communication parameters url: "searchbook.php",
+                    data: "searchKey=" + 
+                    searchInput, 
+                    success: function(serverdata)
+                    {
+                        if (!serverdata.includes("Sorry")) 
+                        {
+                            var style = serverdata.split(";")[0];
+                            var author = serverdata.split(";")[1];
+                            var title = serverdata.split(";")[2];
+                            var authorphoto = serverdata.split(";")[3]; 
+                            var bookcover = serverdata.split(";")[4];
+                            var authorbio = serverdata.split(";")[5]; 
+                            var isbn = serverdata.split(";")[6];
+                            var publisher = serverdata.split(";")[7];
+                            //put the server's response, serverdata, at the placeholder showresults 
+                            $("#showresults").html(
+                                "<table border='1'>" +
+                                "<tr><th>Book Cover</th><th>Title</th><th>Author Photo</th><th>Author</th><th>Style</th><th>Author's Bio</th><th>ISBN</th><th>Publisher</th></tr>"+
+                                "<tr><td><img src='"+bookcover+"' width='80' height='80'/></td><td>"+title+ "</td><td><img src='"+authorphoto+"' width='80' height='80'/></td><td>"+author+"</td><td>"+style+"</td><td width='300'>"+authorbio+"</td><td>"+isbn+"</td><td>"+publisher+"</td>"+ 
+                                "</tr></table>"
+                            );
+                        } 
+                        else 
+                        {
+                            $("#showresults").html("Sorry no records found"); 
+                        }
+                    } 
+                });
+            }
+            function clearinputs() 
+            {
+                $("#showresults").html(""); 
+            }
+        </script> 
+    </head>
+    <body>
+        <h2>Book Search</h2>
+        Search: <input type="text" id="searchTxtBx" autofocus onchange="runjQuery()"
+        onkeydown="clearinputs()"/> <p></p> 
+        <!-- create a placeholder to show the search result --> 
+        <div id="showresults"></div>
+    </body>
+</html>

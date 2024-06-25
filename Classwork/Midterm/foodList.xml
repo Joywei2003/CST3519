@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="midterm.xsl"?>
+
+<week>
+    <weekday name="Sunday">
+        <items>
+            <item name="bread" qty="1" price="3.00"/>
+            <item name="egg" qty="12" price="1.99"/>
+            <item name="milk" qty="1" price="3.80"/>
+            <item name="cheese" qty="2" price="4.80"/>
+        </items>
+    </weekday>
+    <weekday name="Monday">
+        <items>
+            <item name="butter" qty="1" price="2.50"/>
+            <item name="lettuce" qty="1" price="1.50"/>
+            <item name="cereal" qty="2" price="3.50"/>
+            <item name="chicken" qty="1" price="5.00"/>
+            <item name="olive oil" qty="1" price="3.20"/>
+            <item name="sardines" qty="2" price="1.20"/>
+        </items>
+    </weekday>
+    <weekday name="Wednesday">
+        <items>
+            <item name="yogurt" qty="1" price="3.00"/>
+            <item name="apples" qty="6" price="2.99"/>
+            <item name="potato" qty="6" price="0.80"/>
+            <item name="cheese" qty="3" price="6.99"/>
+            <item name="onion" qty="6" price="0.30"/>
+            <item name="parsley" qty="1" price="0.70"/>
+            <item name="juice" qty="2" price="2.40"/>
+            <item name="egg" qty="24" price="1.99"/>
+        </items>
+    </weekday>
+</week>
