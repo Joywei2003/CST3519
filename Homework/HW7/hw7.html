@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <!-- download jQuery from one of the cloud services: Google-->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript"> 
+            function runjQuery()
+            {
+                jQuery.ajax
+                ({
+                    //setup the communication parameters 
+                    url: "db_sendselect.php", 
+                    success: function(serverdata)
+                    {
+                        //take the server's response, serverdata, display it in the placeholder //with id = showselect
+                        $("#showselect").html(serverdata);
+                    } 
+                });
+            }//end of function runjQuery() 
+            function showresult()
+            {
+                //read the value of the selected option
+                var selectedOption = $("#countryList").val() //alert("You selected: " + selectedOption);
+                //selectedOption is a string with values separated by a comma var country = selectedOption.split(",")[0];
+                var capital = selectedOption.split(",")[1];
+                var miles = selectedOption.split(",")[2];
+                var km = selectedOption.split(",")[3];
+                /* Using dom document.getElementById("showdistance").innerHTML = .... */
+                var numberFormat = new Intl.NumberFormat();
+                //using jQuery
+                $("#showdistance").html(
+                    "<table border='1'>" +
+                    "<tr><th colspan='2'>Distance NY to " + capital+", "+ country+"</th></tr>" + 
+                    "<tr><th>Miles</th><th>Kilometers</th></tr>"+
+                    "<tr><td>" + numberFormat.format(miles) + "</td><td>" + numberFormat.format(km) +"</td></tr>" + 
+                    "</table>"
+                );
+            }//end of function showresult()
+        </script> 
+    </head>
+    <body onload="runjQuery()">
+        <h2>Distance New York to World Capital</h2> <p></p> 
+            From: New York <p></p>
+            To: <span id="showselect"></span> <p></p>
+        <div id="showdistance"></div>
+    </body> 
+</html>

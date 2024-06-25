@@ -1,0 +1,20 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <script type="text/javascript">
+            function splash() 
+            {
+                setTimeout(homepage, 5000);
+                //go to the placeholder in the body and display the image there
+                document.getElementById("showsplash").innerHTML = "<img src='american_music.jpg' width='80%'height='80%'/>";
+            }
+            function homepage() 
+            {
+                document.location.href="Hwk10.html"; 
+            }
+        </script> 
+    </head>
+    <body onload="splash()"> 
+        <p id="showsplash"></p>
+    </body> 
+</html>

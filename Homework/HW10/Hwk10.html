@@ -1,0 +1,47 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <script type="text/javascript">
+            var audio = document.createElement("audio"); 
+            audio.controls = true;
+            var hw = false;
+            var wg = false;
+            function playhw(song)
+            {
+                if (wg != true) 
+                {
+                    audio.src=song; 
+                    audio.play();
+                    hw=true; 
+                }
+                hw = false; 
+            }
+            function playwg(song) 
+            {
+                if (hw!=true) 
+                {
+                    audio.src=song; 
+                    audio.play();
+                    wg = true; 
+                }
+                wg = false; 
+            }
+        </script> 
+    </head>
+    <body>
+        <table border="0" cellpadding="30">
+            <tr>
+                <th>
+                    <button onclick="playhw('howling_wolf.mp3')"> Howling Wolf <br/>
+                        <img src="howling_wolf.jpg"/>
+                    </button> 
+                </th>
+                <th>
+                    <button onclick="playwg('woody_guthrie.mp3')"> Woody Guthrie <br/>
+                        <img src="woody_guthrie.jpg"/> 
+                    </button>
+                </th> 
+            </tr>
+        </table> 
+    </body>
+</html>

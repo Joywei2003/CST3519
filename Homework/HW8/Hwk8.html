@@ -1,0 +1,88 @@
+<!DOCTYPE html> 
+<html>
+    <head>
+        <!-- download jQuery from Google -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+        <script type="text/javascript"> 
+            function runjQuery()
+            {
+                //use Ajax to communicate with the server's program 
+                $.ajax
+                ({
+                    //set up the communication parameters 
+                    url: "Hwk8.php",
+                    success: function(serverdata) 
+                    {
+                        //put the server's response (serverdata) in the placeholder
+                        $("#showselect").html(serverdata); 
+                    }
+                });
+            }//end of function runjQuery()
+            
+            function showinfo()
+            {
+                //read the value of the selected option value 
+                var optionValue = $("#personList").val();
+                //variable optionValue is a string with values separated by a comma
+                //if I want to work with the individual values I could use the split function to geT the individual values.
+                var name = optionValue.split(",")[0];
+                var nationality = optionValue.split(",")[1];
+                var profession = optionValue.split(",")[2];
+                var imagefile = optionValue.split(",")[3];
+                //display these information at the placeholder named (id) showresult 
+                $("#showresult").html(
+                    "<table border='0'>"+
+                    "<tr><td colspan='2'><img src='" + imagefile + "' width='200px' height='200px'/></td></tr>" +
+                    "<tr><td>Name:</td><td>"+ name+"</td></tr>"+
+                    "<tr><td>Nationality:</td><td>"+ nationality + "</td></tr>"+ 
+                    "<tr><td>Profession:</td><td>"+ profession + "</td></tr></table>"
+                );
+            }//end of function showinfo()
+            
+            function search() 
+            {
+                //read the search text
+                var searchText = $("#searchTxtBx").val().trim();
+                //let's go to the server using Ajax to search for a match
+                $.ajax
+                ({
+                    //setup the parameters
+                    url: "search.php",
+                    data: "searchKey=" + 
+                    searchText, success: function(serverdata)
+                    {
+                        //display the serverdata in the select placeholder 
+                        var imagefile = serverdata.split(",")[3];
+                        var name = serverdata.split(",")[0];
+                        var nationality = serverdata.split(",")[1];
+                        var profession = serverdata.split(",")[2];
+                        
+                        $("#showresult").html(
+                            "<table border='0'>"+
+                            "<tr><td colspan='2'><img src='" + imagefile + "' width='200px' height='200px'/></td></tr>" +
+                            "<tr><td>Name:</td><td>"+ name+"</td></tr>"+
+                            "<tr><td>Nationality:</td><td>"+ nationality + "</td></tr>"+ 
+                            "<tr><td>Profession:</td><td>"+ profession + "</td></tr></table>"
+                        );
+                    } 
+                });
+            }//end of function search()
+            
+            function clearoutputs() 
+            {
+                $("#showselect").html("");
+                $("#showresult").html(""); 
+            }
+        </script>
+    </head>
+    <body onload="runjQuery()">
+        <h2>Historical Figures</h2>
+        <p></p>
+        Search: <input type="text" id="searchTxtBx" onkeyup="search()" onkeydown="clearoutputs()"/> <p></p>
+        <!-- placeholder for the select element --> 
+        <div id="showselect"></div>
+        <p></p>
+        <!-- placeholder for the results -->
+        <div id="showresult"></div> 
+    </body>
+</html>
