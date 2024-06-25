@@ -1,0 +1,68 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="hw3.xsl"?>
+
+<!---You are given a csv file, top10_proglanguage_022024.csv, and you are asked to display the list sorted by rank.
+ Also, display the top 5 only.
+Convert the csv into a XML file using https://www.convertcsv.com/csv-to-xml.htm -->
+<root>
+  <row>
+    <rank>10</rank>
+    <icon>images/Hwk3_10.png</icon>
+    <language>PHP</language>
+    <index>1.51</index>
+  </row>
+  <row>
+    <rank>1</rank>
+    <icon>images/Hwk3_1.png</icon>
+    <language>Python</language>
+    <index>15.16</index>
+  </row>
+  <row>
+    <rank>3</rank>
+    <icon>images/Hwk3_3.png</icon>
+    <language>C++</language>
+    <index>10.53</index>
+  </row>
+  <row>
+    <rank>7</rank>
+    <icon>images/Hwk3_7.png</icon>
+    <language>SQL</language>
+    <index>1.82</index>
+  </row>
+  <row>
+    <rank>8</rank>
+    <icon>images/Hwk3_8.png</icon>
+    <language>GO</language>
+    <index>1.73</index>
+  </row>
+  <row>
+    <rank>2</rank>
+    <icon>images/Hwk3_2.png</icon>
+    <language>C</language>
+    <index>10.97</index>
+  </row>
+  <row>
+    <rank>6</rank>
+    <icon>images/Hwk3_6.png</icon>
+    <language>Javascript</language>
+    <index>3.17</index>
+  </row>
+  <row>
+    <rank>5</rank>
+    <icon>images/Hwk3_5.png</icon>
+    <language>C#</language>
+    <index>7.53</index>
+  </row>
+  <row>
+    <rank>4</rank>
+    <icon>images/Hwk3_4.png</icon>
+    <language>Java</language>
+    <index>8.88</index>
+  </row>
+  <row>
+    <rank>9</rank>
+    <icon>images/Hwk3_9.png</icon>
+    <language>Visual Basic</language>
+    <index>1.52</index>
+  </row>
+</root>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="hw2.xsl"?>
+<!--Display on a Web page:
+1. All the information contained on the table above
+2. All the information for cars before 2022
+3. All the information on Mustang cars
+Note: The picture column should show the actual image of the car and not its file name.
+make	model	        year	picture
+Ford	Mustang	        2019	mustang2019.jpg
+GM	    Buick Encore    2022	gmbuickencore2022.jpg
+GM	    Silverado	    2022	gmsilverado20222.jpg
+Toyota	Land Cruiser    2019	toyotalandcruiser2019.jpg
+Ford	Mustang Mach-E	2023	 -->
+
+<cars>
+    <car>
+        <make>Ford</make>
+        <model>Mustang</model>
+        <year>2019</year>
+        <picture>images/hwk2_c.jpg</picture>
+    </car>
+    <car>
+        <make>GM</make>
+        <model>Buick Encore</model>
+        <year>2022</year>
+        <picture>images/hwk2_a.jpg</picture>
+    </car>
+    <car>
+        <make>Chevrolet</make>
+        <model>Silverado</model>
+        <year>2022</year>
+        <picture>images/hwk2_b.jpg</picture>
+    </car>
+    <car>
+        <make>Toyota</make>
+        <model>Land Cruiser</model>
+        <year>2019</year>
+        <picture>images/hwk2_d.jpg</picture>
+    </car>
+    <car>
+        <make>Ford</make>
+        <model>Mustang Mach-E</model>
+        <year>2023</year>
+        <picture>images/hwk2_e.png</picture>
+    </car>
+</cars>
